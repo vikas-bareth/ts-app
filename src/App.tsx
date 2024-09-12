@@ -1,24 +1,17 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Login from './features/Auth/Login';
+import { LoginFormData } from './components/Form/Form.types';
+import AuthLayout from './components/Layouts/AuthLayout';
 
-function App() {
+function App():JSX.Element {
+  const handleLogin = (data:LoginFormData):void => {
+    console.log("handler login data",data)
+    //handle login logic
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <AuthLayout children={<Login onLogin={handleLogin} />} />
     </div>
   );
 }
